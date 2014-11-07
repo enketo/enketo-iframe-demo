@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            body {
+               background: #ccc; 
+            }
+            iframe {
+                display: block;
+                margin: 100px auto 0 auto;
+                border: 1px solid black;
+                height: 500px;
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <iframe src="http://enk.to/::YYYo?iframe=true"></iframe>
+
+        <script>
+            window.addEventListener("message", receiveMessage, false);
+
+            function receiveMessage(event)
+            {
+              // TODO in real life, check origin! if (event.origin !== "http://enk.to:8080") return;
+              console.log('data received from iframe', JSON.parse(event.data));
+              console.log('origin of message', event.origin);
+              console.log('source of message', event.source);
+            }
+        </script>
+    </body>
+</html>
